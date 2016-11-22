@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mana Advertisement</title>
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Ubuntu" />
+     <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Rubik" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{url_for('static', filename='font-awesome-4.7.0/css/font-awesome.css')}}" rel="stylesheet" type="text/css" />
+    <style>
+    .glyphicon.glyphicon-triangle-right {
+         font-size:50px;
+    }
+    html,body
+        {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            overflow-x: hidden;
+        }
+    #lolo{
+        height:550px;
+        width:100%;
+        margin-left:-100%;
+        background-image:url('/static/images/field.jpg');
+        background-repeat:no-repeat;
+        background-attachment: fixed;
+    }
+        #footer{
+            background-color:#2d9b53;
+            font-family:'Ubuntu', serif;
+        }
+        #text{
+              margin-top:80px;
+              color:black;
+        }
+        #info{
+            margin-top:27px;
+            background-image:url('https://unsplash.imgix.net/44/9s1lvXLlSbCX5l3ZaYWP_hdr-1.jpg?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=f0a1db79752dbb04ec6d2aab7d17c7b0');
+            background-repeat:no-repeat;
+            background-size:cover;
+            font-family: 'Rubik' , serif;
+            background-attachment: fixed;
+            opacity:0.8;
+            overflow:hidden;
+        }
+        h1{
+            font-size:60px;
+            opacity:2;
+        }
+        #welcome{
+            margin-top:9px;
+            background-color:#2d9b53;
+            height:120px;
+
+        }
+        #search{
+            margin-top:20px;
+            width:800px;
+            margin-left:120px;
+            font-family:'Rubik', serif;
+        }
+
+        #navbar{
+                margin-top:90px;
+                margin-left:300px;
+                background-color:white;
+                font-family:'Ubuntu', serif;
+        }
+        #navbar a{
+        font-size:20px;
+        }#advertise{
+            color:black;
+        }
+        body{
+
+        }
+        #outer-nav{
+            height:150px;
+        }
+
+        @media only screen and (max-width: 766px){
+                #lolo{
+                    display:none;
+                }
+                #text{
+                    margin-top:120px;
+                    color:black;
+
+                }
+
+                h1{
+
+                    font-size:40px;
+                    margin-top:-90px;
+
+                }
+                #navbar{
+                    margin-top:60px;
+                    margin-left:-20px;
+
+                }
+                .navbar-toggle{
+                margin-top:10px;
+
+                }
+                #search{
+
+                    width:100%;
+                    margin-left:auto;
+                    margin-right:auto;
+                }
+                #welcome{
+                    text-align:left;
+                    margin-top:60px;
+                }
+        }
+        @media only screen and (max-width:320px){
+                #outer-nav{
+                    height:200px;
+                }
+                #navbar{
+                    margin-top:110px;
+                    margin-left:-20px;
+                    width:max-width;
+                }
+
+        }@media (min-width:768px) and (max-width: 990px) {
+                 #navbar a{
+                    font-size:15px;
+                    }
+                #advertise{
+                    display:none;
+                }
+                #search{
+                    width:100%;
+                    margin-left:auto;
+                    margin-right:auto;
+                }
+
+        }@media (min-width:992px) and (max-width: 1200px){
+                 #navbar a{
+                    font-size:15px;
+                 }
+        }
+
+    </style>
+    <link href="{{url_for('static',filename='styles/custom-navbar.css')}}" rel="stylesheet" />
+
+</head>
+<body>
+<div class="container-fluid" style="color:white;">
+  <div class="row">
+  <div class="navbar navbar-default navbar-fixed " id="outer-nav" >
+    <div class="container" style="color:white">
+      <div class="navbar-header" style="color:white">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand " style="color:#42f4d7;height:80px;margin-top:8px;margin-left:5px;" href="#"><div><img style="height:50;width:150;"class="img-responsive " src="{{url_for('static',filename='images/logo.JPG')}}" /> </div></a>
+      </div>
+      <div class="collapse navbar-collapse"   id="navbar" >
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#" style="color:#33c480"><strong>Home</strong></a>
+          </li>
+          <li><a href="#About" style="color:#33c480"><strong>Contact us</strong></a>
+          </li>
+          <li class="dropdown"  id="advertise">
+            <a  href="#" class="dropdown-toggle" style="color:#33c480" data-toggle="dropdown"><strong>Advertise your products</strong><b class="caret"></b></a>
+            <ul class="dropdown-menu">
+             <li class="dropdown-header">Different types</li>
+              <li>
+              <li><a  >Sell</a>
+              </li>
+              <li><a  >Rent</a>
+              </li>
+              <li><a >Search for cars</a>
+              </li>
+              <li>
+                  <a >Search for Houses</a>
+              </li>
+              <li class="divider"></li>
+
+            </ul>
+          </li>
+          <li class="dropdown" id = "login-account" >
+
+            <a href="#" class="dropdown-toggle"  data-toggle="dropdown" style="color:#33c480" ><strong>Login</strong><b class="caret"></b></a>
+            <ul class="dropdown-menu">
+             <li class="dropdown-header">Enter your information</li>
+                <!--LOGIN FORM-->
+                 <li>
+                <a>
+
+                    <form class="navbar-form-alt">
+                     <div class="form-group">
+                        <div class="input-group" >
+                            <input type="text" class="form-control inputAB" id="username" placeholder="username" style="margin-top:10px">
+                            <input style="margin-top:10px" type="password" class="form-control inputAB" id="password" placeholder="password">
+                        </div>
+                     </div>
+                    </form>
+
+                </a>
+                 </li>
+                <!--LOGIN FORM-->
+              <li><a href="#" id="login" >Login</a>
+              </li>
+              <li class="divider"></li>
+                <li><a class="slide-trigger" >Register</a></li>
+            </ul>
+          </li>
+
+
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+
+    <div  id="welcome" >
+
+          <div class="col-xs-12" id="search" style="opacity:1;">
+            <h4><strong>Search for Advertisements:</strong></h4>
+            <div class="input-group" >
+                <input id="input" type="search" class="form-control" placeholder="Search for Advertisements" name="srch-term" >
+                <div class="input-group-btn" style="margin-top:5px;">
+                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+        </div>
+
+
+
+
+
+    <div id="info" class="row" style=" height:550px;">
+
+                <div id="lolo"  class="col-sm-4">
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-sm-10"><h1>Register!</h1></div>
+                            <div style="margin-top:45px;" class="col-sm-2"><span style="font-size:30px;" id="slide-right" class="glyphicon glyphicon-triangle-left"></span></div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3>Personal Information</h3>
+                            <div class = "form-group">
+                                <label for="firstname" >Firstname:</label>
+                                <input id="firstname" class="form-control" type="text" />
+                                <label for="lastname">Lastname:</label>
+                                <input type="text" id="lastname" class="form-control" />
+                                <label for="username1">Username:</label>
+                                <input id="username1" type="text" class="form-control"/>
+                                <label for="password1">Password:</label>
+                                <input id="password1" type="password" class="form-control"/>
+                                <label for="confirm-password" >Confirm Password:</label>
+                                <input id="confirm-password" type="password" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3>Contact Information:</h3>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input id="email" class="form-control" type="email"/>
+                                <label for="confirm-email" >Confirm Email:</label>
+                                <input id="confirm-email" class="form-control" />
+                                <label for="Tel">Telephone:</label>
+                                <input id="Tel" type="tel" class="form-control" />
+                                <label for="birth-date">Birth Date:</label>
+                                <input id="birth-date" type="date" class="form-control"/>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <button id="register" class="btn btn-default">Register</button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+        <!--I removed col-sm-offset-5 from text november 20 2016 -->
+            <div id="text" style="background-color:none;" class="col-xs-10 col-xs-offset-2 col-sm-6" >
+
+                <h1>Let the World know what you are Selling Register now!!</h1>
+                <span  class="glyphicon glyphicon-triangle-right slide-trigger"></span>
+
+            </div>
+
+
+
+    </div>
+    <div class="row" id="footer">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h4><strong>Advertise your products for free</strong></h4>
+                <h4><strong>Follow us on:</strong></h4>
+            </div>
+        </div>
+        <div class="row" style="margin-right:40px; margin-top:5px;">
+
+            <div class="col-xs-2 col-xs-offset-3">
+                    <img class="img-responsive" src="{{url_for('static', filename='images/rsz_official-facebook-logo-slide.png')}}" />
+            </div>
+            <div class="col-xs-2">
+                    <img class="img-responsive" src="{{url_for('static', filename='images/rsz_twitter-bird-white-on-blue.png')}}" />
+            </div>
+            <div class="col-xs-2">
+                    <img class="img-responsive" src="{{url_for('static', filename='images/rsz_1img_logo_bluebg_2x.png')}}" />
+            </div>
+            <div class="col-xs-2">
+                    <img class="img-responsive" src="{{url_for('static', filename='images/rsz_instagram-logo-icon.png')}}" />
+            </div>
+
+        </div>
+        <p style="font-size:10px; margin-top:4px;" class="text-center"> powered by Mana-Tech inc.</p>
+    </div>
+
+  </div>
+
+
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script>
+
+    // Login Request
+    $(document).on('click','#login',function(){
+    var username = $('#username').val()
+    var password = $('#password').val()
+    $('#username').val("")
+    $('#password').val("")
+    console.log(username.length+" , "+password.length)
+    if(username.length>0&&password.length>0)
+    {
+        data_to_send = {
+            'username':username,
+            'password':password
+        }
+        $.ajax({
+            type:'POST',
+            //tu URL\/\/\/\/\/
+            url:'{{url_for("login")}}'+'?state='+'{{state}}',
+            //tu URL ^^^^^^^^
+            data:JSON.stringify(data_to_send,null,'\t'),
+            contentType: "application/json;charset=UTF-8",
+
+            success: function(result)
+            {
+
+                var check_user = result
+                console.log(result)
+                var text_to_insert = '<a href="#" class="dropdown-toggle"  data-toggle="dropdown" style="color:#33c480" ><strong>Signed in as: '+result['username']+'</strong><b class="caret"></b></a> \
+            <ul class="dropdown-menu"> \
+             <li class="dropdown-header">Account Management</li>\
+              <li>\
+              <li><a href="{{url_for('profile')}}?user='+check_user["username"]+'&state='+'{{state}}'+'">Profile</a>  \
+              </li>\
+              <li><a  >Add Advertisement</a>\
+              </li>\
+              <li class="divider"></li>\
+                <li><a id="logout">Logout</a></li>\
+            </ul>'
+
+            $('#login-account').html("");
+
+            $('#login-account').html(text_to_insert);
+            },
+            error: function(message)
+            {
+                alert("Wrong Credentials Try Again")
+            }
+
+        });
+
+    }
+    else
+    {
+        alert("You left an empty field")
+    }
+  });//end of click event
+  $(document).on('click','#logout',function(){
+    $.ajax({
+        type:'POST',
+        url:'{{url_for("logout")}}'+'?state={{state}}',
+        success:function(result)
+         {
+            window.location.reload()
+         },
+        error:function(message)
+        {
+            console.log('something went wrong');
+        }
+    })
+
+  })
+</script>
+<script>
+    $(document).on('click','.slide-trigger', function(){
+        if($(document).width()>770)
+        {
+        $('#lolo').animate({'margin-left':'0px'},300);
+        $('#lolo').removeClass();
+        $('#lolo').addClass('col-sm-12');
+        }
+        else
+        {
+            window.location.href="{{url_for('register')}}"
+
+        }
+    })
+    $(document).on('click','#slide-right',function(){
+
+        $('#lolo').removeClass();
+        $('#lolo').addClass('col-sm-4');
+        $('#lolo').animate({'margin-left':'-100%'},300);
+    })
+</script>
+<script>
+    //function for checking if somebody is logged in
+    function check_user()
+    //function designed to grab the current user in the session
+    {
+        var info
+        //ajax call to get information from the server
+        $.ajax({
+            type:'GET',
+            //url with current session key
+            url:'{{url_for("session_check")}}'+'?state='+"{{state}}",
+            //if server response successfully
+            success:function(result){
+                console.log(result);
+                console.log(result["bool"])
+                var check_user = result
+                console.log(check_user)
+                state = "{{state}}"
+
+                if(check_user["bool"] === true)
+                {
+                var text_to_insert = '<a href="#" class="dropdown-toggle"  data-toggle="dropdown" style="color:#33c480" ><strong>Signed in as: '+check_user['username']+'</strong><b class="caret"></b></a> \
+                    <ul class="dropdown-menu"> \
+                     <li class="dropdown-header">Account Management</li>\
+                      <li>\
+                      <li><a id= "profile" href="{{url_for('profile')}}?user='+check_user["username"]+'&state='+'{{state}}'+'">Profile</a>\
+                      </li>\
+                      <li><a  >Add Advertisement</a>\
+                      </li>\
+                      <li class="divider"></li>\
+                        <li><a id = "logout"  >Logout</a></li>\
+                    </ul>'
+
+                    $('#login-account').html(text_to_insert);
+                }
+            },
+            //if there is no user logged in the server responds with internal server error
+            error: function(message){
+                console.log('error');
+            }
+        });
+    }
+
+
+    //thing to do when page loads
+    $(document).ready(function(){
+        //Check if there is a user logged in
+
+        check_user()
+    })
+</script>
+
+
+</body>
+</html>

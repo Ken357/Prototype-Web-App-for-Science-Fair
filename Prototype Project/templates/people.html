@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {%for i in users%}
+        {{i.name}}<br>
+        {{i.username}}<br>
+        {{i.password}}<br>
+        {{i.email}}<br>
+
+    <br>
+    {%endfor%}
+    {% for i in address %}
+    {{i.id}}
+    {{i.username}}
+    {{i.adress_line}}
+    {{i.City}}
+    {{i.State}}
+    {%endfor%}
+</body>
+</html>

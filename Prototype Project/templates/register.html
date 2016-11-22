@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body style="background-color:#777484;">
+
+<div class = "container">
+    <div class="row">
+    <div class="col-xs-12" id="form" style="margin-top:6%;margin-left:3px;margin-right:3px;margin-bottom:6%;border-radius:10px;margin-left:auto;margin-right:auto;background-color:#75d1ef;height:100%;">
+
+       <div class="row">
+           <div class="col-xs-12 col-sm-10 col-sm-offset-2 col-md-8 col-md-offset-2">
+               <h3>Register</h3>
+                <hr>
+           <div class= "form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" placeholder="username">
+           </div>
+          <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" placeholder="example@mana.com"/>
+          </div>
+          <div class="form-group">
+              <label for="full-name">Full Name:</label>
+              <input type="text" class="form-control" placeholder="Name" id="full-name"/>
+          </div>
+          <div class="form-group">
+              <label for="password">Password: </label>
+              <input type="password" id="password" placeholder="password"
+              class="form-control">
+          </div>
+          <div class="form-group">
+              <label for="telephone"> Telephone: </label>
+              <input type="tel" id="telephone" class="form-control" placeholder="1-000-000-0000">
+          </div>
+          <div class="form-group">
+              <label for="address">Mailing Adress:</label>
+              <input type="text" class="form-control" placeholder="Adress Line" id="address"/>
+              <input type="text" class="form-control" placeholder="City" id="city"/>
+              <input type="text" class="form-control" placeholder="State" id="state"/>
+              <input type="number" class="form-control" placeholder="Zip Code" id="zip-code"/>
+          </div>
+          <div class="form-group" style="margin-bottom:20px;">
+              <input type="submit" class="form-control" value="Register" id="btn"/>
+          </div>
+           </div>
+       </div>
+
+    </div>
+        </div>
+</div>
+<script>
+    $(document).ready(function(){
+    $('#btn').click(function(){
+        var newInfo = {
+            username: $('#username').val(),
+            email: $('#email').val(),
+            name: $('#full-name').val(),
+            password: $('#password').val(),
+            telephone: $('#telephone').val(),
+            address_line: $('#address').val(),
+            city: $('#city').val(),
+            state: $('#state').val(),
+            zip_code: $('#zip-code').val()
+        }
+        console.log(""+newInfo.username.length+" "+newInfo.password.length+" "+newInfo.email+" "+newInfo.full_name+"")
+        var nbool
+
+            for(i in newInfo)
+            {
+                if(newInfo[i].length === 0)
+                {
+                alert('you left a blank field')
+                nbool = false;
+                break;
+                }
+                nbool = true;
+            }
+            if(nbool&&newInfo.username.length>=6&&newInfo.password.length>=6)
+            {
+            data_to_send = newInfo
+           $.ajax({
+            type:"POST",
+            url: "{{url_for('ajaxAdd')}}",
+            data: JSON.stringify(data_to_send, null, '\t'),
+            contentType:"application/json;charset=UTF-8",
+            success: function(result){
+                text_to_insert="<div style='height:500px'><h3>New user created successfully</h3>\
+                                 <a href='{{url_for("home")}}'>return to home page to log in</a></div>"
+                $('#form').html("<h3>"+text_to_insert+"</h3>")
+
+                    console.log(result)
+             },
+            error: function(){
+                alert('User already exists')
+            }
+
+           })
+        }else{alert("name and password must be 6 figures or longer, email must be a valid one, Or you left a blank input")}
+
+    })
+
+
+    })
+
+
+</script>
+
+</body>
+</html>

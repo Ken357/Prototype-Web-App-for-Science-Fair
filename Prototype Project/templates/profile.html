@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="{{url_for('static',filename='styles/profile-navbar.css')}}" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <div class="container-fluid">
+          <div class="row" id="navbar">
+              <div class="navbar navbar-default navbar-fixed-top">
+                <div class="collapse navbar-collapse ">
+                  <div class="col-sm-8"><a href="{{url_for('home')}}"><span id="caret"  class="glyphicon glyphicon-triangle-left  "></span></a></div>
+                      <div class="col-sm-3">
+                           <ul class="nav navbar-nav"  >
+                               <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa  fa-user-circle-o " id="username" aria-hidden="true">Loading...</i>
+                                        <b class = "caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-header">
+                                                <strong><h5>Account Management</h5></strong>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <a>Create new Advertisement</a>
+                                            </li>
+                                            <li>
+                                                <a>Block List</a>
+                                            </li>
+                                            <li>
+                                                <a>Edit Profile</a>
+                                            </li>
+                                            <li>
+                                                <a>Logout</a>
+                                            </li>
+                                        </ul>
+                               </li>
+                           </ul>
+                      </div>
+                </div>
+              </div>
+          </div>
+          <div class="row">
+
+          </div>
+    </div>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script src = "{{url_for('static',filename='scripts/disable_back.js')}}"></script>
+     <script>
+    $(document).ready(function(){
+        $.ajax({
+            type:'GET',
+            url:"{{url_for('session_check')}}"+"?state={{state}}",
+            success: function(result)
+            {
+                $('#username').html(result['username']);
+            },
+            error: function(message)
+            {
+                alert('You must login first before entering your profile');
+            }
+        });
+    });
+  </script>
+</body>
+</html>
